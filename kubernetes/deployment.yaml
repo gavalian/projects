@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8p-track
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8p-track
+  template:
+    metadata:
+      labels:
+        app: k8p-track
+    spec:
+      containers:
+      - name: k8p-tracks
+        image: gavalian/k8p-track:0.0.1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
